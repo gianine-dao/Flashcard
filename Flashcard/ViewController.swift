@@ -18,8 +18,17 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    @IBAction func didTapOnFlashcard(_ sender: Any) {frontLabel.isHidden = true;
+    }
     
-    @IBAction func didTapOnFlashcard(_ sender: UITapGestureRecognizer!) {frontLabel.isHidden = true;
+    func updateFlashcard(Question: String, Answer: String) {
+        //Do stuff here
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let navigationController = segue.destination as! UINavigationController
+        let creationController = navigationController.topViewController as! CreationViewController
+        creationController.flashcardsController = self
     }
 }
 
