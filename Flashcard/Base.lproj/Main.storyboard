@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,15 +33,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.98288340839999999" green="0.73228735519999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="qeg-8S-TUi" appends="YES" id="hBd-R7-7f3"/>
+                                        </connections>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="XUt-IG-CqR" appends="YES" id="JQ9-qf-WxK"/>
+                                    <outletCollection property="gestureRecognizers" destination="qeg-8S-TUi" appends="YES" id="Rag-72-LUE"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrC-Je-rEq">
@@ -52,23 +56,44 @@
                                     <segue destination="KPb-If-hNp" kind="show" id="ocm-pE-XC8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6Q-FR-ACo">
+                                <rect key="frame" x="303" y="617" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="didTapOnNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ncI-4s-Om1"/>
+                                    <outletCollection property="gestureRecognizers" destination="YXZ-iF-GxM" appends="YES" id="WNw-OZ-BdE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wu3-HM-Bjv">
+                                <rect key="frame" x="40" y="617" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Prev"/>
+                                <connections>
+                                    <action selector="didTapOnPrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oVN-dv-igG"/>
+                                    <outletCollection property="gestureRecognizers" destination="yxs-3J-jhH" appends="YES" id="pG3-Qc-ay7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="XUt-IG-CqR" appends="YES" id="aor-yH-Na8"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="backLabel" destination="yKl-i1-ZxR" id="xmf-Ek-YQI"/>
                         <outlet property="frontLabel" destination="rKV-HC-crh" id="kTo-ae-vdK"/>
+                        <outlet property="nextButton" destination="Z6Q-FR-ACo" id="JHg-Ep-lhe"/>
+                        <outlet property="prevButton" destination="wu3-HM-Bjv" id="X2U-9Z-ebQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="XUt-IG-CqR">
+                <tapGestureRecognizer id="yxs-3J-jhH"/>
+                <tapGestureRecognizer id="YXZ-iF-GxM"/>
+                <tapGestureRecognizer id="qeg-8S-TUi">
                     <connections>
-                        <action selector="didTapOnFlashcard:" destination="BYZ-38-t0r" id="Ogp-me-VtD"/>
+                        <action selector="didTapOnFlashcard:" destination="BYZ-38-t0r" id="yoQ-MC-pXX"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -108,6 +133,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Hm0-Aa-UmZ"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="cNZ-XG-u3G">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="dbQ-73-Xvp">
                             <connections>
@@ -120,6 +146,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="answerTextField" destination="eRt-Im-Zoz" id="nFO-wk-Eca"/>
                         <outlet property="questionTextField" destination="k3Z-10-ddZ" id="Ivk-6k-J43"/>
