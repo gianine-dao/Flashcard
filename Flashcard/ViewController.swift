@@ -30,7 +30,10 @@ class ViewController: UIViewController {
         currentIndex = currentIndex + 1
         updateLabels()
         updateNextPrevButtons()
+        animateCardOut()
     }
+    
+    @IBOutlet weak var card: UIView!
     
     func updateNextPrevButtons(){
         if currentIndex == flashcards.count - 1 {
@@ -51,6 +54,21 @@ class ViewController: UIViewController {
         backLabel.text = currentFlashcard.Answer
     }
     
+    @IBAction func didTapOnDelete(_ sender: Any) {
+        let alert = UIAlertController(title: "Delete flashcard", message: "Are you sure you want to delete the flashcard?", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {action in
+            self.deleteCurrentFlashcard()
+        }
+        alert.addAction(deleteAction)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(cancelAction)
+
+    }
+    
+    func deleteCurrentFlashcard(){
+    }
+    
     var flashcards = [Flashcard]()
     var currentIndex = 0
     
@@ -68,7 +86,16 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func didTapOnFlashcard(_ sender: UITapGestureRecognizer!) {frontLabel.isHidden = true;
+    @IBAction func didTapOnFlashcard(_ sender: Any) {
+        flipFlashcard()
+    }
+    
+    func flipFlashcard(){
+        
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {
+            self.frontLabel.isHidden = true
+        })
+        frontLabel.isHidden = true
     }
     
     func updateFlashcard(Question: String, Answer: String) {
@@ -95,6 +122,22 @@ class ViewController: UIViewController {
         print("Flashcards saved to UserDefaults")
     }
     
+    func animateCardOut(){
+        UIView.animate(withDuration: 0.3, animations: {self.card.transform = CGAffineTransform.identity.translatedBy(x:-300, y: 0.0)}, completion: {finished in
+            self.updateLabels()
+            self.animateCardIn()
+            
+        })
+    }
+    
+    func animateCardIn(){
+        
+        card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        UIView.animate(withDuration: 0.3){
+            self.card.transform = CGAffineTransform.identity
+        }
+    }
+        
     func readSavedFlashcards(){
         if let dictionaryArray = UserDefaults.standard.array (forKey: "flashcards") as? [[String: String]] {
             let savedCards = dictionaryArray.map {dictionary -> Flashcard in return Flashcard (Question: dictionary["Question"]!, Answer: dictionary["Answer"]!)}
