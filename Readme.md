@@ -6,7 +6,7 @@ This update of the flashcard app includes fun new animations.
 
 ### App Walk-though
 
-<img src=http://g.recordit.co/TzOQqcCxIM.gifwidth=200><br>
+<img src=http://g.recordit.co/TzOQqcCxIM.gif width=200><br>
 
 
 ## Required
@@ -30,7 +30,7 @@ Update to flashcard app allows user to scroll between flashcards and saves flash
 ### App Walk-though
 
 
-<img src=http://g.recordit.co/TzOQqcCxIM.gifwidth=200><br>
+<img src=http://g.recordit.co/TzOQqcCxIM.gif width=200><br>
 
 
 ## Required
@@ -50,7 +50,7 @@ This app allows users to create their own flashcards and use them instantly on t
 
 ### App Walk-though
 
-<img src=http://g.recordit.co/BCzZDO6d6m.gifwidth=200><br>
+<img src=http://g.recordit.co/BCzZDO6d6m.gif width=200><br>
 
 
 ## Required
